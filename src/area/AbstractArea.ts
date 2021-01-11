@@ -4,10 +4,10 @@ export abstract class AbstractArea {
 	public abstract id: string;
 	public abstract name: string;
 	public abstract desc?: string;
+	public abstract travel: Partial<Record<Direction, string>>;
 	public firstDesc?: string;
 	public image?: string;
 	public color?: string | number;
-	public travel: Partial<Record<Direction, string>> = {};
 	public get showPaths() {
 		if (!Object.keys(this.travel).length) return "";
 		return  `\n\nYou can move ${Object.keys(this.travel).join(", ")}.`;

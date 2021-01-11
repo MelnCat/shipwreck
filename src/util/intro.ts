@@ -65,7 +65,7 @@ You decide that it is a great day to visit some new places."
 	await typeMsg(`You head outside, and head to the nearest terminal to purchase a fare for boarding.\n
 You decide to purchase a fare for a two-way trip, and began to wait for the departure.`);
 	setImage(
-		`
+		`\
    ~~     ~       ~
   ~~   ~     ~~ ~    ____
 ---------------  ~~  \\  _

@@ -14,17 +14,22 @@ export default class GrasslandArea extends AbstractArea {
 You notice a broken branch on the ground. It had likely been broken by a wild animal, but it could have been broken by something, or someone else.
 Perhaps it could be of use.`;
 	public image = `\
-"  '  ,   " .   ,  "
-"    .    '    . ,  . "
-,   '  " "  ,  . " , .' "
+"; '  ,   " .   ,  ":
+"    .  : '    . ,; . "
+,:  ' ;" "  ,  . " , .' "
+.    .  . " ' ' .  . ';
+" ".   . ' , '. :' , ' .
+""; . '  .  ; '  .   ,
+.   ':" , .  . ' " ' ' 
+'  '  . ' " . ',  '' , .\
 `
-		.replace(/[__‾)<]/g, x => `{229-fg}${x}`)
-		.replace(/[~^]/g, x => `{143-fg}${x}`)
-		.replace(/["'/\].:@]/g, x => `{186-fg}${x}`)
-		.replace(/[&<{]/g, x => `{145-fg}${x}`)
-		.replace(/[;$]/g, x => `{71-fg}${x}`);
+		.replace(/[,"']/g, x => `{28-fg}${x}`)
+		.replace(/[.]/g, x => `{47-fg}${x}`)
+		.replace(/[:]/g, x => `{98-fg}${x}`)
+		.replace(/[;]/g, x => `{160-fg}${x}`);
 	public color = 76;
 	public travel = {
+		[Direction.NORTH]: "cliffs",
 		[Direction.SOUTH]: "beach",
 	};
 	/** @override */

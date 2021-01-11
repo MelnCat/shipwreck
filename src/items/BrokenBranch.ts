@@ -22,6 +22,6 @@ The door swings open, revealing the location it had previously blocked.\n\nYou a
 			return;
 		}
 		typeMsg(`You throw the branch. Nothing happens. You pick up the branch, and begin to wonder why you threw it.
-Perhaps you could fix the branch with an instruction such as "fix branch".`);
+Maybe you could use the branch for something.`);
 	}
 }

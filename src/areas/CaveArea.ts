@@ -12,7 +12,7 @@ of dripping water.`;
   #       #        # 
    ##    ##     #   
    #    #    #      #
-#    #      #     #
+#    #      #     #\
 `.replace(/[#]/g, x => `{237-fg}${x}`);
 	public color = 241;
 	public travel = {

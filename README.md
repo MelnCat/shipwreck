@@ -1,2 +1,2 @@
 # Shipwreck Game
-Project for school.
+Project.

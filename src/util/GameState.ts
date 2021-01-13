@@ -1,6 +1,6 @@
 import { areas } from "../area/Areas";
 import type { AbstractArea } from "../area/AbstractArea";
-import { GameHandler, typeMsg } from "./GameHandler";
+import { GameHandler, setImage, typeMsg } from "./GameHandler";
 import type { Direction } from "./Direction";
 import type { AbstractItem } from "../item/AbstractItem";
 import { items } from "../item/Items";
@@ -29,6 +29,9 @@ export class GameState {
 			);
 		if (!this.seen.has(sel.id)) this.seen.add(sel.id);
 	}
+	public static getItem(str: string) {
+		return this.inventory.find(x => x.name.toLowerCase() === str.toLowerCase() || x.alias.some(y => y.toLowerCase() === str.toLowerCase()));
+	}
 	public static moveDirection(dir: Direction) {
 		const newArea = areas[this.area.travel[dir] ?? ""];
 		if (!newArea) return typeMsg(this.area.failedMove(dir));
@@ -43,6 +46,7 @@ export class GameState {
 		this.inventory.push(sel);
 		typeMsg(`You have obtained a(n) ${sel.name}.
 \n${(this.seen.has(sel.id) ? sel.desc : sel.firstDesc) ?? sel.desc}`);
+		if (sel.image) setImage(sel.image);
 		if (!this.seen.has(sel.id)) this.seen.add(sel.id);
 	}
 	public static removeItem(sel: string | AbstractItem) {

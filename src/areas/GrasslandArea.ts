@@ -31,8 +31,8 @@ Perhaps it could be of use.`;
 	public travel = {
 		[Direction.NORTH]: "cliffs",
 		[Direction.SOUTH]: "beach",
+		[Direction.WEST]: "river",
 	};
-	/** @override */
 	public onCommand(command: string, args: string[]) {
 		if (["pick", "obtain", "grab", "take"].some(x => x === command)) {
 			if (args[0] === "up") args.shift();

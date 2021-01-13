@@ -10,4 +10,5 @@ export abstract class AbstractItem {
 	public onUse(command: string, args: string[]) {
 		typeMsg(`You are unable to ${command} this ${this.name}.`);
 	}
+	public onCombine?(item: AbstractItem): unknown;
 }

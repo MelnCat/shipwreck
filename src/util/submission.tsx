@@ -1,5 +1,5 @@
 import { Direction, toDirection } from "./Direction";
-import { GameHandler, typeMsg } from "./GameHandler";
+import { GameHandler, setImage, typeMsg } from "./GameHandler";
 import { GameState } from "./GameState";
 
 export interface ICommand {
@@ -62,12 +62,23 @@ const commands: ICommand[] = [
 		any: ["inspect"],
 		exec(command, args) {
 			if (!args.length) return typeMsg(`Inspect what? Please specify.`);
-			const name = args.join(" ").toLowerCase().trim();
-			const item = GameState.inventory.find(x => x.name.toLowerCase() === name || x.alias.some(y => y.toLowerCase() === name));
+			const name = args.join(" ").trim();
+			const item = GameState.getItem(name);
 			if (!item) return typeMsg(`${name} is not a valid item.`); 
 			typeMsg(`You take a look at the ${item.name}.\n\n${item.desc}`);
+			if (item.image) setImage(item.image);
 		},
 	},
+	{
+		any: ["pick", "obtain", "grab", "take"],
+		exec(command, args) {
+			if (args[0] === "up") args.shift();
+			if (!args.length) typeMsg(`What do you want to ${command}? Please clarify.`);
+			const success = GameState.getArea().onGrab(command, args);
+			if (!success) typeMsg(GameState.getArea().failedGrab(args.join(" ")));
+			return false;
+		}
+	}
 ];
 if (process.env.NODE_ENV === "development")
 	commands.push({

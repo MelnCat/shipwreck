@@ -20,8 +20,8 @@ export abstract class AbstractArea {
 	public failedMove(dir: Direction) {
 		return `You cannot move ${Direction[dir]} here.`;
 	}
-	public onGrab(str: string): boolean { str; return false; }
+	public onGrab(command: string, args: string[]): boolean { return false; }
 	public failedGrab(str: string) {
-		return `As far as you can tell, there isn't a ${str} here.`;
+		return `As far as you can tell, there isn't a(n) ${str} here.`;
 	}
 }

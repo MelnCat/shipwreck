@@ -4,7 +4,7 @@ import { Direction } from "../util/Direction";
 export default class SeashoreArea extends AbstractArea {
 	public id = "seashore";
 	public name = "Seashore";
-	public desc = `You are at the edge of the beach. The water glistens in the bright sunshine.
+	public desc = `You are at the edge of the beach. The water glistens in the bright sunlight.
 You notice how there are no one selling seashells here. You have been lied to.`;
 	public firstDesc = `You are at the edge of the beach. You can see the waves gently rise up, and fall back down.
 You could watch this all day. Unfortunately, you do not have all day. You better get moving.`;
